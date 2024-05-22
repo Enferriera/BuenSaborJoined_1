@@ -134,7 +134,7 @@ public class BuenSaborApplication {
 
 			// Crear 1 empresa, 2 sucursales para esa empresa y los Domicilios para esas sucursales
 
-			Empresa empresaCarlos = Empresa.builder().nombre("Lo de Carlos").cuil(30546780l).razonSocial("Venta de Alimentos").build();
+			Empresa empresaCarlos = Empresa.builder().nombre("Lo de Carlos").cuit(30546780l).razonSocial("Venta de Alimentos").build();
 			empresaRepository.save(empresaCarlos);
 
 			Sucursal sucursalGuaymallen = Sucursal.builder().
@@ -555,7 +555,7 @@ public class BuenSaborApplication {
 
 			Empresa empresa = Empresa.builder()
 					.nombre("Empresa de prueba")
-					.cuil(99999l)
+					.cuit(99999l)
 					.razonSocial("Razon social")
 					.build();
 			empresaRepository.save(empresa);
