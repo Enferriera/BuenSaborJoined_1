@@ -14,6 +14,6 @@ import java.util.Set;
 public class EmpresaLargeDto extends BaseDto{
     private String nombre;
     private String razonSocial;
-    private Long cuil;
+    private Long cuit;
     private Set<SucursalDto> sucursales;
 }
