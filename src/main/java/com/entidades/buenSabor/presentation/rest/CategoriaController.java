@@ -48,4 +48,9 @@ public class CategoriaController {
     }
 
 
+    @GetMapping("/sucursal/{id}")
+    public ResponseEntity<List<?>> getCategoriasBySucursal(@PathVariable Long id) {
+        logger.info("INICIO GET CATEGORIAS BY SUCURSAL");
+        return ResponseEntity.ok(categoriaFacade.getCategoriasBySucursal(id));
+    }
 }

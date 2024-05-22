@@ -22,7 +22,7 @@ public abstract class Articulo  extends Base {
 
     protected String denominacion;
     protected Double precioVenta;
-
+    protected boolean habilitado = true;
 
     @OneToMany(cascade = CascadeType.ALL)
     //SE AGREGA EL JOIN COLUMN PARA QUE JPA NO CREE LA TABLA INTERMEDIA EN UNA RELACION ONE TO MANY

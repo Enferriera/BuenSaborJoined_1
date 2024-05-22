@@ -9,6 +9,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class ImagenArticuloDto extends BaseDto{
+public class ImagenDto extends BaseDto{
+    private String name;
     private String url;
 }

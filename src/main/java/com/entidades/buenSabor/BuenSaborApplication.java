@@ -262,11 +262,12 @@ public class BuenSaborApplication {
 
 			// crear fotos para cada insumo
 			ImagenArticulo imagenArticuloCoca = ImagenArticulo.builder().
+			name("CocaCola.jpg").
 					url("https://m.media-amazon.com/images/I/51v8nyxSOYL._SL1500_.jpg").
 					build();
-			ImagenArticulo imagenArticuloHarina = ImagenArticulo.builder().url("https://mandolina.co/wp-content/uploads/2023/03/648366622-1024x683.jpg").build();
-			ImagenArticulo imagenArticuloQueso = ImagenArticulo.builder().url("https://superdepaso.com.ar/wp-content/uploads/2021/06/SANTAROSA-PATEGRAS-04.jpg").build();
-			ImagenArticulo imagenArticuloTomate = ImagenArticulo.builder().url("https://thefoodtech.com/wp-content/uploads/2020/06/Componentes-de-calidad-en-el-tomate-828x548.jpg").build();
+			ImagenArticulo imagenArticuloHarina = ImagenArticulo.builder().name("Harina.jpg").url("https://mandolina.co/wp-content/uploads/2023/03/648366622-1024x683.jpg").build();
+			ImagenArticulo imagenArticuloQueso = ImagenArticulo.builder().name("Queso.jpg").url("https://superdepaso.com.ar/wp-content/uploads/2021/06/SANTAROSA-PATEGRAS-04.jpg").build();
+			ImagenArticulo imagenArticuloTomate = ImagenArticulo.builder().name("Tomate.jpg").url("https://thefoodtech.com/wp-content/uploads/2020/06/Componentes-de-calidad-en-el-tomate-828x548.jpg").build();
 			//imagenArticuloRepository.save(imagenArticuloCoca);
 			//imagenArticuloRepository.save(imagenArticuloHarina);
 			//imagenArticuloRepository.save(imagenArticuloQueso);
@@ -309,9 +310,10 @@ public class BuenSaborApplication {
 
 			// Crear fotos para los artículos manufacturados
 			ImagenArticulo imagenArticuloPizzaMuzarella = ImagenArticulo.builder().
+					name("Muzzarela.jpg").
 					url("https://storage.googleapis.com/fitia-api-bucket/media/images/recipe_images/1002846.jpg").
 					build();
-			ImagenArticulo imagenArticuloPizzaNapolitana = ImagenArticulo.builder().url("https://assets.elgourmet.com/wp-content/uploads/2023/03/8metlvp345_portada-pizza-1024x686.jpg.webp").build();
+			ImagenArticulo imagenArticuloPizzaNapolitana = ImagenArticulo.builder().name("Napolitana.jpg").url("https://assets.elgourmet.com/wp-content/uploads/2023/03/8metlvp345_portada-pizza-1024x686.jpg.webp").build();
 			//imagenArticuloRepository.save(imagenArticuloPizzaMuzarella);
 			//imagenArticuloRepository.save(imagenArticuloPizzaNapolitana);
 

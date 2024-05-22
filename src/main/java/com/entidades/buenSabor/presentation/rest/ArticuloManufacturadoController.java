@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -20,6 +21,11 @@ public class ArticuloManufacturadoController  {
 
     @Autowired
     private ArticuloManufacturadoFacade articuloManufacturadoFacade;
+    @PutMapping("/changeHabilitado/{id}")
+    public ResponseEntity<?> changeHabilitado(@PathVariable Long id){
+        articuloManufacturadoFacade.changeHabilitado(id);
+        return ResponseEntity.ok().body("Se cambio el estado del Insuomo");
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ArticuloManufacturadoDto> getById(@PathVariable Long id){
@@ -49,6 +55,53 @@ public class ArticuloManufacturadoController  {
     public ResponseEntity<?> deleteById(@PathVariable Long id){
         logger.info("INICIO DELETE BY Long");
         return ResponseEntity.ok(articuloManufacturadoFacade.deleteById(id));
+    }
+
+    // Método POST para subir imágenes
+    @PostMapping("/uploads")
+    public ResponseEntity<String> uploadImages(
+            @RequestParam(value = "uploads", required = true) MultipartFile[] files,
+            @RequestParam(value = "id", required = true) Long idArticulo) {
+        try {
+            return articuloManufacturadoFacade.uploadImages(files, idArticulo); // Llama al método del servicio para subir imágenes
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Manejo básico de errores, se puede mejorar para devolver una respuesta más específica
+        }
+    }
+
+    // Método POST para eliminar imágenes por su publicId y Long
+    @PostMapping("/deleteImg")
+    public ResponseEntity<String> deleteById(
+            @RequestParam(value = "publicId", required = true) String publicId,
+            @RequestParam(value = "id", required = true) Long id) {
+        try {
+            return articuloManufacturadoFacade.deleteImage(publicId, id); // Llama al método del servicio para eliminar la imagen
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body("Invalid UUID format"); // Respuesta HTTP 400 si el UUID no es válido
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("An error occurred"); // Respuesta HTTP 500 si ocurre un error inesperado
+        }
+    }
+
+    // Método GET para obtener todas las imágenes almacenadas
+    @GetMapping("/getImagesByArticuloId/{id}")
+    public ResponseEntity<?> getAll(@PathVariable Long id) {
+        try {
+            return articuloManufacturadoFacade.getAllImagesByArticuloId(id); // Llama al método del servicio para obtener todas las imágenes
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Manejo básico de errores, se puede mejorar para devolver una respuesta más específica
+        }
+    }
+
+
+    @GetMapping("/sucursal/{id}")
+    public ResponseEntity<?> getBySucursal(@PathVariable Long id) {
+        logger.info("INICIO GET BY Long {}", id);
+        return ResponseEntity.ok(articuloManufacturadoFacade.getBySucursal(id));
     }
 
 }
