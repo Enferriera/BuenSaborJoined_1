@@ -274,9 +274,13 @@ public class BuenSaborApplication {
 
 			//ASOCIAMOS IMAGEN CON INSUMOS
 			cocaCola.getImagenes().add(imagenArticuloCoca);
+			cocaCola.setCategoria(categoriaGaseosas);
 			harina.getImagenes().add(imagenArticuloHarina);
+			harina.setCategoria(categoriaInsumos);
 			queso.getImagenes().add(imagenArticuloQueso);
+			queso.setCategoria(categoriaInsumos);
 			tomate.getImagenes().add(imagenArticuloTomate);
+			tomate.setCategoria(categoriaInsumos);
 			// Grabamos los Articulos
 			articuloInsumoRepository.save(cocaCola);
 			articuloInsumoRepository.save(harina);
@@ -336,10 +340,12 @@ public class BuenSaborApplication {
 			//ASOCIAMOS LOS DETALLE MANUFACTURADO AL ARTICULO MANUFACTURADO - LA RECETA
 			pizzaMuzarella.getArticuloManufacturadoDetalles().add(detalle1);
 			pizzaMuzarella.getArticuloManufacturadoDetalles().add(detalle2);
+			pizzaMuzarella.setCategoria(categoriaPizzas);
 
 			pizzaNapolitana.getArticuloManufacturadoDetalles().add(detalle3);
 			pizzaNapolitana.getArticuloManufacturadoDetalles().add(detalle4);
 			pizzaNapolitana.getArticuloManufacturadoDetalles().add(detalle5);
+			pizzaNapolitana.setCategoria(categoriaPizzas);
 			// GRABAMOS LA RECETA
 			articuloManufacturadoRepository.save(pizzaMuzarella);
 			articuloManufacturadoRepository.save(pizzaNapolitana);
