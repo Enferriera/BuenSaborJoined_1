@@ -26,6 +26,10 @@ public class SucursalServiceImpl extends BaseServiceImp<Sucursal,Long> implement
     @Override
     @Transactional
     public Sucursal guardarSucursal(Sucursal sucursal) {
+       if(sucursal.isEsCasaMatriz())
+           if(sucursalRepository.existsByCasaMatrizTrue()){
+               throw new RuntimeException("Ya existe una sucursal que es casa matriz");
+           }
         var domicilio = sucursal.getDomicilio();
         domicilioRepository.save(domicilio);
         var empresa = empresaRepository.findById(sucursal.getEmpresa().getId());
