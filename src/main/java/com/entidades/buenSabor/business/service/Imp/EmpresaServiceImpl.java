@@ -24,4 +24,9 @@ public class EmpresaServiceImpl extends BaseServiceImp<Empresa,Long> implements 
         empresa.getSucursales().add(sucursalService.getById(idSucursal));
         return empresa;
     }
+
+    @Override
+    public Empresa findWithSucursalesById(Long id) {
+        return empresaRepository.findWithSucursalesById(id);
+    }
 }
